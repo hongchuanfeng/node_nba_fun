@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Fun Facts - Explore lesser-known basketball stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nba: {
+                            purple: '#552583',
+                            gold: '#FDB927',
+                            dark: '#171717',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .hero-gradient {
+                background: linear-gradient(to right, rgba(85, 37, 131, 0.9), rgba(24, 24, 24, 0.8));
+            }
+        }
+    </style>
+    <link rel="alternate" hreflang="en" href="/index.html">
+    <link rel="alternate" hreflang="zh-CN" href="/cn/index.html">
+    <link rel="alternate" hreflang="x-default" href="/index.html">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8WF0S87W7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-8WF0S87W7F');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274710287377352"
+         crossorigin="anonymous"></script>
+        <link rel="icon" href="favicon.ico">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-nba-purple text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-basketball-ball text-2xl text-nba-gold"></i>
+                <h1 class="text-xl font-bold">NBA Fun Facts</h1>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-home mr-1"></i> Home
+                </a>
+                <a href="game.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-gamepad mr-1"></i> Games
+                </a>
+                <a href="#facts" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-lightbulb-o mr-1"></i> Fun Facts
+                </a>
+                <a href="about.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-info-circle mr-1"></i> About
+                </a>
+                <a href="privacy.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-shield mr-1"></i> Privacy Policy
+                </a>
+                <!-- Search框 -->
+                <div class="ml-4 flex items-center space-x-2">
+                    <input id="search-input" type="text" placeholder="Search titles..." class="px-3 py-1.5 rounded-md text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-nba-gold" />
+                    <button id="search-btn" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark text-sm font-semibold px-3 py-1.5 rounded-md transition-colors duration-300">
+                        Search
+                    </button>
+                </div>
+                <a href="cn/index.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-globe mr-1"></i> 中文
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-toggle" class="text-white hover:text-nba-gold transition-colors duration-300">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端折叠菜单 -->
+    <div id="mobile-menu" class="md:hidden bg-nba-purple text-white px-4 py-3 hidden">
+        <div class="flex flex-col space-y-3">
+            <a href="#" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-home mr-1"></i> Home
+            </a>
+            <a href="prediction_2025.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-trophy mr-1"></i> 2025 NBA Championship Prediction
+            </a>
+            <a href="game.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-gamepad mr-1"></i> Games
+            </a>
+            <a href="#facts" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-lightbulb-o mr-1"></i> Fun Facts
+            </a>
+            <a href="about.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-info-circle mr-1"></i> About
+            </a>
+            <a href="privacy.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-shield mr-1"></i> Privacy Policy
+            </a>
+            <a href="cn/index.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-globe mr-1"></i> 中文 (Chinese)
+            </a>
+            <div class="pt-2 border-t border-white/20"></div>
+            <div class="flex items-center space-x-2">
+                <input id="search-input-m" type="text" placeholder="Search titles..." class="flex-1 px-3 py-2 rounded-md text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-nba-gold" />
+                <button id="search-btn-m" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark text-sm font-semibold px-3 py-2 rounded-md transition-colors duration-300">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="relative h-[70vh] min-h-[500px] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1058/1920/1080" alt="NBA basketball game" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow leading-tight">
+                    Explore the NBA's lesser-known<br>Fun Facts
+                </h1>
+                <p class="text-xl text-gray-100 mb-8">
+                    Dive into little-known NBA stories, stats, and trivia to become a true hoops expert.
+                </p>
+                <a href="#facts" class="inline-block bg-nba-gold hover:bg-yellow-500 text-nba-dark font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg">
+                    Start Exploring <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Facts -->
+    <section id="facts" class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">NBA Fun Facts Collection</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">These little-known NBA facts will help you see the game in a fresh way.</p>
+        </div>
+        
+
+        <div id="facts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="start_1.html" class="block">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/893.png" alt="Jordan Set the Lowest Score in Three-Point Contest History" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-1/600/400';">
+                <div class="p-6">
+                    <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                    <h3 class="font-bold text-xl mb-3">Jordan Set the Lowest Score in Three-Point Contest History</h3>
+                    <p class="text-gray-600 mb-4">In the 1990 All-Star Weekend three-point contest, Michael Jordan scored only 5 points, the lowest score in three-point c...</p>
+                    <div class="flex items-center text-nba-purple font-medium">
+                        Read more <i class="fa fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <a href="start_2.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png" alt="LeBron Spends Millions of Dollars Annually on Body Maintenance" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-2/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">LeBron Spends Millions of Dollars Annually on Body Maintenance</h3>
+                        <p class="text-gray-600 mb-4">LeBron James invests over $1 million annually in body maintenance to stay at peak performance. This includes nutritionis...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_3.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/76003.png" alt="Abdul-Jabbar is the NBA's All-Time Scoring Leader but Never Won a Dunk Contest" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-3/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Abdul-Jabbar is the NBA's All-Time Scoring Leader but Never Won a Dunk Contest</h3>
+                        <p class="text-gray-600 mb-4">Kareem Abdul-Jabbar became the NBA's all-time scoring leader with 38,387 points, and his "Skyhook" shot is one of the mo...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_4.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/77142.png" alt="Magic Won the NBA Championship and Finals MVP at Age 20" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-4/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Magic Won the NBA Championship and Finals MVP at Age 20</h3>
+                        <p class="text-gray-600 mb-4">In 1980, at just 20 years old, Magic Johnson scored 42 points, 15 rebounds, and 7 assists in Game 6 of the Finals after ...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_5.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/78049.png" alt="Russell Has 11 Championship Rings but Never Won a Scoring Title" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-5/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Russell Has 11 Championship Rings but Never Won a Scoring Title</h3>
+                        <p class="text-gray-600 mb-4">Bill Russell is one of the greatest defensive players in NBA history, with 11 championship rings, the most in NBA histor...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_6.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/76375.png" alt="Chamberlain's 100-Point Game Was Actually Played in a Small Arena" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-6/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Chamberlain's 100-Point Game Was Actually Played in a Small Arena</h3>
+                        <p class="text-gray-600 mb-4">On March 2, 1962, Wilt Chamberlain scored 100 points against the New York Knicks, the highest single-game scoring record...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_7.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/1495.png" alt="Duncan Was Ejected for Laughing on the Bench" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-7/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Duncan Was Ejected for Laughing on the Bench</h3>
+                        <p class="text-gray-600 mb-4">On April 15, 2007, in a game between the Spurs and Mavericks, Tim Duncan was ejected by referee Joey Crawford for laughi...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_8.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/406.png" alt="O'Neal Released Rap Albums" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-8/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">O'Neal Released Rap Albums</h3>
+                        <p class="text-gray-600 mb-4">Beyond his dominance on the basketball court, Shaquille O'Neal is also a multi-talented entertainer. He released 5 rap a...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_9.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/1449.png" alt="Bird is the Only Player to Win Both Preseason MVP and Finals MVP" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-9/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Bird is the Only Player to Win Both Preseason MVP and Finals MVP</h3>
+                        <p class="text-gray-600 mb-4">Larry Bird is the only player in NBA history to win both Preseason MVP and Finals MVP. This record is very unique becaus...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_10.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png" alt="Curry's Shooting Form Was Once Criticized" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-10/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Curry's Shooting Form Was Once Criticized</h3>
+                        <p class="text-gray-600 mb-4">Early in Stephen Curry's career, many basketball experts and coaches criticized his shooting form. They believed Curry's...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_11.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png" alt="Kobe's First and Last NBA Points Were Both Free Throws" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-11/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Kobe's First and Last NBA Points Were Both Free Throws</h3>
+                        <p class="text-gray-600 mb-4">Kobe Bryant's career is full of symbolism. On November 3, 1996, 18-year-old Kobe scored his first NBA point on a free th...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_12.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/165.png" alt="Olajuwon Was the First International No. 1 Overall Pick in NBA History" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-12/600/400';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">Olajuwon Was the First International No. 1 Overall Pick in NBA History</h3>
+                        <p class="text-gray-600 mb-4">In the 1984 NBA Draft, Hakeem Olajuwon was selected first overall by the Houston Rockets, becoming the first internation...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Load more按钮 -->
+        <div class="text-center mt-12">
+            <button id="load-more-btn" class="bg-white hover:bg-gray-100 text-nba-purple font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md border border-nba-purple">
+                Load more <i class="fa fa-refresh ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Nba Famous Person -->
+    <section id="famous" class="container mx-auto px-4 py-16">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">NBA Famous Person</h2>
+            <p class="text-gray-600">Click a name to view a related fact</p>
+        </div>
+        <div id="famous-tags" class="flex flex-wrap gap-3 justify-center">
+            <a href="start_1.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Michael Jordan</a>
+            <a href="start_2.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">LeBron James</a>
+            <a href="start_3.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Kareem Abdul-Jabbar</a>
+            <a href="start_4.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Magic Johnson</a>
+            <a href="start_5.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Bill Russell</a>
+            <a href="start_6.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Wilt Chamberlain</a>
+            <a href="start_7.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Tim Duncan</a>
+            <a href="start_8.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Shaquille O'Neal</a>
+            <a href="start_9.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Larry Bird</a>
+            <a href="start_10.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Stephen Curry</a>
+            <a href="start_11.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Kobe Bryant</a>
+            <a href="start_12.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">Hakeem Olajuwon</a>
+        </div>
+    </section>
+
+    <!-- 订阅区 -->
+    <section class="bg-nba-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Get more NBA Fun Facts</h2>
+                <p class="text-gray-300 mb-8">Subscribe to our newsletter for weekly curated NBA Fun Facts and trivia.</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-nba-gold">
+                    <button type="submit" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About NBA Fun Facts</h2>
+                <p class="text-gray-600">We collect lesser-known NBA stories, stats, and nuggets for curious fans.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <div class="rounded-full overflow-hidden w-32 h-32 mx-auto md:mx-0 border-4 border-nba-purple">
+                            <img src="https://picsum.photos/id/1005/200/200" alt="Founder" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+                        <p class="text-gray-600 mb-4">
+                            Founded in 2023 by hoops fans, NBA Fun Facts highlights more than famous plays—there’s a world of hidden stories and trivia worth sharing.
+                        </p>
+                        <p class="text-gray-600">
+                            We aim to showcase another side of the NBA and make watching games more fun. Have a Fun Fact to share? Contact us!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-nba-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-basketball-ball text-2xl text-nba-gold"></i>
+                        <span class="font-bold text-xl">NBA Fun Facts</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Explore lesser-known NBA stories and become a true hoops expert</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Home</a></li>
+                        <li><a href="#facts" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Fun Facts</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Player Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Team History</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Stats Trivia</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">Rules Facts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i> hcf@foxmail.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-twitter mr-2"></i> @nbacoldfacts
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-map-marker mr-2"></i> Longhua District, Shenzhen
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 友情链接 -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="text-center mb-6">
+                    <h4 class="font-bold text-lg mb-4 text-white">Friend Links</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <a href="https://www.chdaoai.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            传道AI图片工具
+                        </a>
+                        <a href="https://pdf.chdaoai.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            PDF在线工具
+                        </a>
+                        <a href="https://www.icebreakgame.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            Ice break Games
+                        </a>
+                        <a href="https://mosaic.openai2025.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            免费图片工具
+                        </a>
+                        <a href="https://video2txt.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            视频转文字
+                        </a>
+                        <a href="https://www.removewatermarker.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            Remove Video Watermark, Logo & Subtitle
+                        </a>
+                        <a href="https://barcode.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">
+                            Online Bulk Barcode Generator
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2023 NBA Fun Facts - For learning and communication only; not affiliated with the NBA</p>
+                
+                <p>
+
+                    <a href="https://beian.miit.gov.cn/" > 工业和信息化部 粤ICP备2026028564号-1</a>
+                </p>
+    
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-nba-purple hover:bg-purple-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 回到顶部按钮功能
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 12位明星的初始数据（来自start.md）
+        const starsData = [
+            {
+                id: 'star-1',
+                title: "Jordan Set the Lowest Score in Three-Point Contest History",
+                detail: "In the 1990 All-Star Weekend three-point contest, Michael Jordan scored only 5 points, the lowest score in three-point contest history. This record reflects the characteristics of that era—Jordan's scoring primarily relied on mid-range jumpers and drives to the basket, rather than shooting many three-pointers.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/893.png",
+                localLink: "start.md#1-michael-jordan"
+            },
+            {
+                id: 'star-2',
+                title: "LeBron Spends Millions of Dollars Annually on Body Maintenance",
+                detail: "LeBron James invests over $1 million annually in body maintenance to stay at peak performance. This includes nutritionists, personal trainers, recovery equipment, cryotherapy, hyperbaric oxygen chambers, and more.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png",
+                localLink: "start.md#2-lebron-james"
+            },
+            {
+                id: 'star-3',
+                title: "Abdul-Jabbar is the NBA's All-Time Scoring Leader but Never Won a Dunk Contest",
+                detail: "Kareem Abdul-Jabbar became the NBA's all-time scoring leader with 38,387 points, and his \"Skyhook\" shot is one of the most famous moves in basketball history. Interestingly, despite having excellent height and athleticism, Abdul-Jabbar never participated in a dunk contest.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/76003.png",
+                localLink: "start.md#3-kareem-abdul-jabbar"
+            },
+            {
+                id: 'star-4',
+                title: "Magic Won the NBA Championship and Finals MVP at Age 20",
+                detail: "In 1980, at just 20 years old, Magic Johnson scored 42 points, 15 rebounds, and 7 assists in Game 6 of the Finals after Kareem Abdul-Jabbar was injured and couldn't play, temporarily switching to center position.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/77142.png",
+                localLink: "start.md#4-magic-johnson"
+            },
+            {
+                id: 'star-5',
+                title: "Russell Has 11 Championship Rings but Never Won a Scoring Title",
+                detail: "Bill Russell is one of the greatest defensive players in NBA history, with 11 championship rings, the most in NBA history. Interestingly, despite averaging only 15.1 points per game in his career, Russell never won a scoring title.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/78049.png",
+                localLink: "start.md#5-bill-russell"
+            },
+            {
+                id: 'star-6',
+                title: "Chamberlain's 100-Point Game Was Actually Played in a Small Arena",
+                detail: "On March 2, 1962, Wilt Chamberlain scored 100 points against the New York Knicks, the highest single-game scoring record in NBA history. Interestingly, this game wasn't played in a major arena like Madison Square Garden, but in a small arena in Hershey, Pennsylvania.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/76375.png",
+                localLink: "start.md#6-wilt-chamberlain"
+            },
+            {
+                id: 'star-7',
+                title: "Duncan Was Ejected for Laughing on the Bench",
+                detail: "On April 15, 2007, in a game between the Spurs and Mavericks, Tim Duncan was ejected by referee Joey Crawford for laughing on the bench. This is one of the most famous technical fouls in NBA history.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1495.png",
+                localLink: "start.md#7-tim-duncan"
+            },
+            {
+                id: 'star-8',
+                title: "O'Neal Released Rap Albums",
+                detail: "Beyond his dominance on the basketball court, Shaquille O'Neal is also a multi-talented entertainer. He released 5 rap albums, with his debut album \"Shaq Diesel\" in 1993 achieving platinum status.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/406.png",
+                localLink: "start.md#8-shaquille-oneal"
+            },
+            {
+                id: 'star-9',
+                title: "Bird is the Only Player to Win Both Preseason MVP and Finals MVP",
+                detail: "Larry Bird is the only player in NBA history to win both Preseason MVP and Finals MVP. This record is very unique because Preseason MVP and Finals MVP are usually considered honors at completely different levels.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1449.png",
+                localLink: "start.md#9-larry-bird"
+            },
+            {
+                id: 'star-10',
+                title: "Curry's Shooting Form Was Once Criticized",
+                detail: "Early in Stephen Curry's career, many basketball experts and coaches criticized his shooting form. They believed Curry's release point was too low and his shooting motion wasn't standard enough. However, Curry stuck to his shooting style and eventually became one of the greatest shooters in NBA history.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png",
+                localLink: "start.md#10-stephen-curry"
+            },
+            {
+                id: 'star-11',
+                title: "Kobe's First and Last NBA Points Were Both Free Throws",
+                detail: "Kobe Bryant's career is full of symbolism. On November 3, 1996, 18-year-old Kobe scored his first NBA point on a free throw against the Minnesota Timberwolves. Twenty years later, on April 13, 2016, Kobe scored 60 points in his farewell game against the Utah Jazz, with his last two points also coming from free throws.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/977.png",
+                localLink: "start.md#11-kobe-bryant"
+            },
+            {
+                id: 'star-12',
+                title: "Olajuwon Was the First International No. 1 Overall Pick in NBA History",
+                detail: "In the 1984 NBA Draft, Hakeem Olajuwon was selected first overall by the Houston Rockets, becoming the first international No. 1 overall pick in NBA history. This milestone marked the beginning of the NBA's globalization process and opened doors for future international players.",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/165.png",
+                localLink: "start.md#12-hakeem-olajuwon"
+            }
+        ];
+
+        // 初始加载与"Load more"功能
+        (function() {
+            const grid = document.getElementById('facts-grid');
+            const btn = document.getElementById('load-more-btn');
+            if (!grid || !btn) return;
+
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            function buildCard(item) {
+                const link = item.localLink || '#';
+                const title = escapeHtml(item.title || '');
+                const detail = (item.detail || '').slice(0, 120) + '...';
+                const text = escapeHtml(detail);
+                const img = item.image || `https://picsum.photos/id/${(item.id || 1) % 1000}/600/400`;
+                const fallback = `https://picsum.photos/seed/nba-${(item.id || 1)}/600/400`;
+                const alt = title;
+                return `
+            <a href="${link}" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="${img}" alt="${alt}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='${fallback}';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Fun Facts</span>
+                        <h3 class="font-bold text-xl mb-3">${title}</h3>
+                        <p class="text-gray-600 mb-4">${text}</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+            }
+
+            let nbaJsonCache = null;    // nba.json 数据缓存
+            let nbaJsonSorted = null;   // 按 id 降序的 nba.json 数据
+            let nbaJsonCursor = 0;       // nba.json 当前已渲染到的位置
+            let isNbaJsonMode = false;  // 是否已切换到 nba.json 模式
+
+            async function ensureNbaJsonData() {
+                if (!nbaJsonCache) {
+                    const res = await fetch('nba.json', { cache: 'no-store' });
+                    nbaJsonCache = await res.json();
+                }
+                if (!nbaJsonSorted) {
+                    nbaJsonSorted = nbaJsonCache
+                        .filter(x => typeof x.id === 'number')
+                        .sort((a, b) => b.id - a.id);
+                }
+            }
+
+            function appendItems(items) {
+                const html = items.map(buildCard).join('\n');
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = html;
+                Array.from(wrapper.children).forEach(node => grid.appendChild(node));
+            }
+
+            function updateButtonState(done) {
+                if (done) {
+                    btn.innerHTML = 'All loaded';
+                    btn.classList.add('cursor-not-allowed');
+                    btn.disabled = true;
+                } else {
+                    btn.innerHTML = 'Load more <i class="fa fa-refresh ml-2"></i>';
+                    btn.classList.remove('cursor-not-allowed');
+                    btn.disabled = false;
+                }
+            }
+
+            async function loadNbaJsonNext(count) {
+                btn.disabled = true;
+                btn.classList.add('opacity-60');
+                try {
+                    await ensureNbaJsonData();
+
+                    if (nbaJsonCursor >= nbaJsonSorted.length) {
+                        updateButtonState(true);
+                        return;
+                    }
+
+                    const next = nbaJsonSorted.slice(nbaJsonCursor, nbaJsonCursor + count);
+                    appendItems(next);
+                    nbaJsonCursor += next.length;
+
+                    updateButtonState(nbaJsonCursor >= nbaJsonSorted.length);
+                } catch (e) {
+                    console.error(e);
+                    btn.innerHTML = 'Load failed, retry';
+                } finally {
+                    btn.classList.remove('opacity-60');
+                    if (!btn.classList.contains('cursor-not-allowed')) {
+                        btn.disabled = false;
+                    }
+                }
+            }
+
+            // 首次进入页面：显示12位明星数据
+            (function initialLoad() {
+                //grid.innerHTML = '';
+                //appendItems(starsData);
+                updateButtonState(false);
+            })();
+
+            // 点击按钮：首次点击加载 nba.json 数据，之后每次追加6条
+            btn.addEventListener('click', () => {
+                if (!isNbaJsonMode) {
+                    // 首次点击，切换到 nba.json 模式
+                    isNbaJsonMode = true;
+                    loadNbaJsonNext(12);
+                } else {
+                    // 后续点击，继续加载
+                    loadNbaJsonNext(6);
+                }
+            });
+        })();
+
+        // Search功能：按 title 过滤并渲染结果（包含12位明星数据和nba.json数据）
+        (function() {
+            const grid = document.getElementById('facts-grid');
+            const input = document.getElementById('search-input');
+            const btn = document.getElementById('search-btn');
+            const mInput = document.getElementById('search-input-m');
+            const mBtn = document.getElementById('search-btn-m');
+            if (!grid || !input || !btn) return;
+
+            let nbaJsonCache = null;
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+            function buildCard(item) {
+                const link = item.localLink || '#';
+                const title = escapeHtml(item.title || '');
+                const detail = (item.detail || '').slice(0, 120) + '...';
+                const text = escapeHtml(detail);
+                const img = item.image || `https://picsum.photos/id/${(item.id || 1) % 1000}/600/400`;
+                const fallback = `https://picsum.photos/seed/nba-${(item.id || 1)}/600/400`;
+                const alt = title;
+                return `
+            <a href="${link}" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="${img}" alt="${alt}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='${fallback}';">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Search</span>
+                        <h3 class="font-bold text-xl mb-3">${title}</h3>
+                        <p class="text-gray-600 mb-4">${text}</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            Read more <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+            }
+
+            async function doSearch() {
+                const kw = (input.value || '').trim();
+                if (!kw) return; // 不做空Search
+                
+                // 确保 nba.json 数据已加载
+                if (!nbaJsonCache) {
+                    try {
+                    const res = await fetch('nba.json', { cache: 'no-store' });
+                        nbaJsonCache = await res.json();
+                    } catch (e) {
+                        nbaJsonCache = [];
+                    }
+                }
+                
+                const lower = kw.toLowerCase();
+                // 合并12位明星数据和nba.json数据进行搜索
+                const allData = [...starsData, ...(nbaJsonCache || [])];
+                const result = allData.filter(x => (x.title || '').toLowerCase().indexOf(lower) !== -1).slice(0, 30);
+                
+                // 清空并渲染
+                grid.innerHTML = result.map(buildCard).join('\n') || '<div class="col-span-3 text-center text-gray-500">No matching results found</div>';
+                // 滚动到列表
+                document.getElementById('facts').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            btn.addEventListener('click', doSearch);
+            input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+            // 绑定移动端Search：复用同一逻辑
+            if (mBtn && mInput) {
+                mBtn.addEventListener('click', () => { input.value = mInput.value; doSearch(); });
+                mInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { input.value = mInput.value; doSearch(); } });
+            }
+        })();
+
+        // 移动端菜单开关
+        (function(){
+            const btn = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function(){
+                menu.classList.toggle('hidden');
+            });
+        })();
+
+        // Famous Person 标签区：从 nba.json 提取明星名并渲染为可点击标签
+        (function(){
+            const wrap = document.getElementById('famous-tags');
+            if (!wrap) return;
+
+            const STOPWORDS = new Set([
+                'The','A','An','First','Youngest','Oldest','Only','Why','How','NBA','Nba','Meaning','Average','Origin','Shortest','Longest','Rules','Timeout','Most','Least','In','On','At','Of'
+            ]);
+
+            function extractName(title){
+                if (!title || typeof title !== 'string') return '';
+                // 统一引号
+                const t = title.trim();
+                // 1) 优先匹配所有格，如 "Kobe’s", "Kobe's"
+                let m = t.match(/^([A-Z][A-Za-z\.\-]+(?:\s+[A-Z][A-Za-z\.\-]+){0,2})[’']s\b/);
+                if (m) return m[1];
+                // 2) 其次匹配前1-3个首字母大写的词组
+                m = t.match(/^([A-Z][A-Za-z\.\-]+)(?:\s+([A-Z][A-Za-z\.\-]+))?(?:\s+([A-Z][A-Za-z\.\-]+))?/);
+                if (m) {
+                    const words = [m[1], m[2], m[3]].filter(Boolean);
+                    if (words.length && !STOPWORDS.has(words[0])) {
+                        // 合并前两到三个单词作为姓名（如果第二个是停用词则仅取第一个）
+                        return words.join(' ');
+                    }
+                }
+                return '';
+            }
+
+            function createTag(name, href){
+                const a = document.createElement('a');
+                a.href = href || '#';
+                a.className = 'inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200';
+                a.textContent = name;
+                return a;
+            }
+
+            (async function init(){
+                try {
+                    const res = await fetch('nba.json', { cache: 'no-store' });
+                    const data = await res.json();
+                    const seen = new Set();
+                    const tags = [];
+                    for (const item of data) {
+                        const name = extractName(item.title);
+                        if (!name) continue;
+                        const key = name.toLowerCase();
+                        if (seen.has(key)) continue;
+                        // 记录首个匹配该姓名的链接
+                        const href = item.localLink || '#';
+                        seen.add(key);
+                        tags.push({ name, href });
+                        if (tags.length >= 36) break; // 限制标签数量，避免过长
+                    }
+                    if (tags.length === 0) return;
+                    const frag = document.createDocumentFragment();
+                    tags.forEach(t => frag.appendChild(createTag(t.name, t.href)));
+                    wrap.appendChild(frag);
+                } catch (e) {
+                    console.error(e);
+                }
+            })();
+        })();
+    </script>
+</body>
+</html>

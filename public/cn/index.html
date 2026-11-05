@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA冷门知识库 - 探索不为人知的篮球故事</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nba: {
+                            purple: '#552583',
+                            gold: '#FDB927',
+                            dark: '#171717',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .hero-gradient {
+                background: linear-gradient(to right, rgba(85, 37, 131, 0.9), rgba(24, 24, 24, 0.8));
+            }
+        }
+    </style>
+    <link rel="alternate" hreflang="zh-CN" href="/cn/index.html">
+    <link rel="alternate" hreflang="en" href="/index.html">
+    <link rel="alternate" hreflang="x-default" href="/index.html">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8WF0S87W7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8WF0S87W7F');
+</script>
+<link rel="icon" href="../favicon.ico">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274710287377352"
+     crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-nba-purple text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-basketball-ball text-2xl text-nba-gold"></i>
+                <h1 class="text-xl font-bold">NBA冷门知识库</h1>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-home mr-1"></i> 首页
+                </a>
+                <a href="../game.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-gamepad mr-1"></i> 游戏
+                </a>
+                <a href="#facts" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-lightbulb-o mr-1"></i> 冷门知识
+                </a>
+                <a href="about.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-info-circle mr-1"></i> 关于我们
+                </a>
+                <a href="privacy.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-shield mr-1"></i> 隐私政策
+                </a>
+                <!-- 搜索框 -->
+                <div class="ml-4 flex items-center space-x-2">
+                    <input id="search-input" type="text" placeholder="搜索标题..." class="px-3 py-1.5 rounded-md text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-nba-gold" />
+                    <button id="search-btn" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark text-sm font-semibold px-3 py-1.5 rounded-md transition-colors duration-300">
+                        搜索
+                    </button>
+                </div>
+                <a href="../index.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                    <i class="fa fa-globe mr-1"></i> English
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-toggle" class="text-white hover:text-nba-gold transition-colors duration-300">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端折叠菜单 -->
+    <div id="mobile-menu" class="md:hidden bg-nba-purple text-white px-4 py-3 hidden">
+        <div class="flex flex-col space-y-3">
+            <a href="#" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-home mr-1"></i> 首页
+            </a>
+            <a href="prediction_2025.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-trophy mr-1"></i> 2025 NBA总冠军预测
+            </a>
+            <a href="../game.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-gamepad mr-1"></i> 游戏
+            </a>
+            <a href="#facts" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-lightbulb-o mr-1"></i> 冷门知识
+            </a>
+            <a href="about.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-info-circle mr-1"></i> 关于我们
+            </a>
+            <a href="privacy.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-shield mr-1"></i> 隐私政策
+            </a>
+            <a href="../index.html" class="text-white hover:text-nba-gold transition-colors duration-300 flex items-center">
+                <i class="fa fa-globe mr-1"></i> English
+            </a>
+            <div class="pt-2 border-t border-white/20"></div>
+            <div class="flex items-center space-x-2">
+                <input id="search-input-m" type="text" placeholder="搜索标题..." class="flex-1 px-3 py-2 rounded-md text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-nba-gold" />
+                <button id="search-btn-m" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark text-sm font-semibold px-3 py-2 rounded-md transition-colors duration-300">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 英雄区 -->
+    <header class="relative h-[70vh] min-h-[500px] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1058/1920/1080" alt="NBA篮球比赛" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow leading-tight">
+                    探索NBA不为人知的<br>冷门知识点
+                </h1>
+                <p class="text-xl text-gray-100 mb-8">
+                    深入了解那些鲜为人知的NBA故事、数据和趣闻，让你成为篮球知识最丰富的球迷
+                </p>
+                <a href="#facts" class="inline-block bg-nba-gold hover:bg-yellow-500 text-nba-dark font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg">
+                    开始探索 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 知识点列表区 -->
+    <section id="facts" class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">NBA冷门知识点合集</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">这些你可能不知道的NBA冷知识，将让你重新认识这个充满魅力的篮球世界</p>
+        </div>
+        
+        <div id="facts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="start_1.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/893.png" alt="乔丹在三分球大赛中创造了历史最低分" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-1/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">乔丹在三分球大赛中创造了历史最低分</h3>
+                        <p class="text-gray-600 mb-4">1990年全明星周末的三分球大赛中，迈克尔・乔丹只得到了5分，这是三分球大赛历史...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_2.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png" alt="勒布朗每年花费数百万美元保养身体" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-2/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">勒布朗每年花费数百万美元保养身体</h3>
+                        <p class="text-gray-600 mb-4">勒布朗・詹姆斯为了保持巅峰状态，每年在身体保养上投入超过100万美元。这包括营养...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_3.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/76003.png" alt="贾巴尔是NBA历史得分王，但从未获得过扣篮大赛冠军" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-3/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">贾巴尔是NBA历史得分王，但从未获得过扣篮大赛冠军</h3>
+                        <p class="text-gray-600 mb-4">卡里姆・阿卜杜勒-贾巴尔以38,387分成为NBA历史得分王，他的"天勾"投篮是...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_4.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/77142.png" alt="魔术师在20岁时就获得了NBA总冠军和总决赛MVP" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-4/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">魔术师在20岁时就获得了NBA总冠军和总决赛MVP</h3>
+                        <p class="text-gray-600 mb-4">1980年，年仅20岁的魔术师约翰逊在总决赛第六场比赛中，由于贾巴尔受伤无法上场...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_5.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/78049.png" alt="拉塞尔拥有11枚总冠军戒指，但从未获得过得分王" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-5/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">拉塞尔拥有11枚总冠军戒指，但从未获得过得分王</h3>
+                        <p class="text-gray-600 mb-4">比尔・拉塞尔是NBA历史上最伟大的防守球员之一，他拥有11枚总冠军戒指，是NBA...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_6.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/76375.png" alt="张伯伦单场100分的比赛，实际上是在一个小球馆里进行的" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-6/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">张伯伦单场100分的比赛，实际上是在一个小球馆里进行的</h3>
+                        <p class="text-gray-600 mb-4">1962年3月2日，威尔特・张伯伦在对阵纽约尼克斯的比赛中砍下了100分，这是N...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_7.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/1495.png" alt="邓肯因为在场边笑而被驱逐出场" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-7/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">邓肯因为在场边笑而被驱逐出场</h3>
+                        <p class="text-gray-600 mb-4">2007年4月15日，在一场马刺队对阵小牛队的比赛中，蒂姆・邓肯因为坐在替补席上...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_8.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/406.png" alt="奥尼尔曾经发行过说唱专辑" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-8/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">奥尼尔曾经发行过说唱专辑</h3>
+                        <p class="text-gray-600 mb-4">除了在篮球场上的统治力，沙奎尔・奥尼尔还是一位多才多艺的艺人。他曾经发行过5张说...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_9.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/1449.png" alt="伯德是唯一同时获得季前赛MVP和总决赛MVP的球员" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-9/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">伯德是唯一同时获得季前赛MVP和总决赛MVP的球员</h3>
+                        <p class="text-gray-600 mb-4">拉里・伯德是NBA历史上唯一一位同时获得季前赛MVP和总决赛MVP的球员。这个记...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_10.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png" alt="库里的投篮姿势曾经被批评过" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-10/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">库里的投篮姿势曾经被批评过</h3>
+                        <p class="text-gray-600 mb-4">在斯蒂芬・库里的职业生涯早期，许多篮球专家和教练都批评过他的投篮姿势。他们认为库...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_11.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png" alt="科比的第一个和最后一个NBA得分都是罚球" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-11/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">科比的第一个和最后一个NBA得分都是罚球</h3>
+                        <p class="text-gray-600 mb-4">1996年11月3日，18岁的科比在对阵明尼苏达森林狼的比赛中，通过罚球得到了他...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="start_12.html" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/165.png" alt="奥拉朱旺是NBA历史上第一位外籍状元秀" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-star-12/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">奥拉朱旺是NBA历史上第一位外籍状元秀</h3>
+                        <p class="text-gray-600 mb-4">1984年NBA选秀大会上，哈基姆・奥拉朱旺以第一顺位被休斯顿火箭队选中，成为N...</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a></div>
+        
+        <!-- 加载更多按钮 -->
+        <div class="text-center mt-12">
+            <button id="load-more-btn" class="bg-white hover:bg-gray-100 text-nba-purple font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md border border-nba-purple">加载更多</button>
+        </div>
+    </section>
+
+    <!-- NBA名人 -->
+    <section id="famous" class="container mx-auto px-4 py-16">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">NBA名人</h2>
+            <p class="text-gray-600">点击标签查看相关冷知识</p>
+        </div>
+        <div id="famous-tags" class="flex flex-wrap gap-3 justify-center">
+            <a href="start_1.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">迈克尔・乔丹</a>
+            <a href="start_2.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">勒布朗・詹姆斯</a>
+            <a href="start_3.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">卡里姆・阿卜杜勒-贾巴尔</a>
+            <a href="start_4.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">魔术师约翰逊</a>
+            <a href="start_5.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">比尔・拉塞尔</a>
+            <a href="start_6.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">威尔特・张伯伦</a>
+            <a href="start_7.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">蒂姆・邓肯</a>
+            <a href="start_8.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">沙奎尔・奥尼尔</a>
+            <a href="start_9.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">拉里・伯德</a>
+            <a href="start_10.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">斯蒂芬・库里</a>
+            <a href="start_11.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">科比・布莱恩特</a>
+            <a href="start_12.html" class="inline-flex items-center bg-nba-purple text-white hover:bg-purple-800 text-sm font-semibold px-3 py-1 rounded-full transition-colors duration-200">哈基姆・奥拉朱旺</a>
+        </div>
+    </section>
+
+    <!-- 订阅区 -->
+    <section class="bg-nba-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">获取更多NBA冷门知识</h2>
+                <p class="text-gray-300 mb-8">订阅我们的 newsletter，每周收到精选的NBA冷门知识点和趣闻</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <input type="email" placeholder="输入你的邮箱地址" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-nba-gold">
+                    <button type="submit" class="bg-nba-gold hover:bg-yellow-500 text-nba-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">
+                        立即订阅
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">关于NBA冷门知识库</h2>
+                <p class="text-gray-600">我们致力于收集和整理NBA联盟中那些不为人知的有趣故事、数据和知识点</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <div class="rounded-full overflow-hidden w-32 h-32 mx-auto md:mx-0 border-4 border-nba-purple">
+                            <img src="https://picsum.photos/id/1005/200/200" alt="创始人" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">我们的使命</h3>
+                        <p class="text-gray-600 mb-4">
+                            NBA冷门知识库成立于2023年，由一群热爱篮球的球迷创建。我们发现，除了那些广为人知的球星故事和比赛集锦，NBA还有许多鲜为人知的趣闻和知识点值得被挖掘和分享。
+                        </p>
+                        <p class="text-gray-600">
+                            我们希望通过这个平台，让更多的篮球爱好者了解NBA的另一面，丰富大家的篮球知识，让看球变得更加有趣。如果你有任何冷门知识点想分享，欢迎联系我们。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-nba-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-basketball-ball text-2xl text-nba-gold"></i>
+                        <span class="font-bold text-xl">NBA冷门知识库</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">探索NBA不为人知的有趣故事，让你成为真正的篮球专家</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">首页</a></li>
+                        <li><a href="#facts" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">冷门知识</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">关于我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">知识点分类</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">球员故事</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">球队历史</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">数据趣闻</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-nba-gold transition-colors duration-300">规则冷知识</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i> hcf@foxmail.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-twitter mr-2"></i> @nbacoldfacts
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-map-marker mr-2"></i> 深圳市龙华区130号
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+                        <!-- 友链 -->
+            <div class="border-t border-gray-700 pt-8">
+                <h4 class="font-bold text-lg mb-4 text-white text-center">Friend Links</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://removewatermark.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Remove Video Watermark, Logo & Subtitle</a>
+                    <a href="https://video2txt.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Video to Text - Online Converter</a>
+                    <a href="https://barcode.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Online Bulk Barcode Generator</a>
+                    <a href="https://www.chdaoai.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Chdao AI Image Tool</a>
+                    <a href="https://pdf.chdaoai.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">PDF Online Tools</a>
+                    <a href="https://www.icebreakgame.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Ice break Games</a>
+                    <a href="https://mosaic.openai2025.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">Free image tools</a>
+                    <a href="https://video2txt.zorezoro.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-nba-gold transition-colors duration-300 text-sm">video to text</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2023 NBA冷门知识库 - 本网站仅供学习交流使用，与NBA官方无任何关联</p>
+                <p>
+                    <a href="https://beian.miit.gov.cn/" > 工业和信息化部 粤ICP备2026028564号-1</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-nba-purple hover:bg-purple-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 回到顶部按钮功能
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 12位明星的初始数据（来自start_cn.md）
+        const starsData = [
+            {
+                id: 'star-1',
+                title: "乔丹在三分球大赛中创造了历史最低分",
+                detail: "1990年全明星周末的三分球大赛中，迈克尔・乔丹只得到了5分，这是三分球大赛历史上的最低分。这个记录反映了那个时代的特点——乔丹的得分主要依靠中距离跳投和突破上篮，而不是大量投三分。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/893.png",
+                localLink: "start_cn.md#1-迈克尔・乔丹-michael-jordan"
+            },
+            {
+                id: 'star-2',
+                title: "勒布朗每年花费数百万美元保养身体",
+                detail: "勒布朗・詹姆斯为了保持巅峰状态，每年在身体保养上投入超过100万美元。这包括营养师、私人训练师、恢复设备、冷冻疗法、高压氧舱等。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png",
+                localLink: "start_cn.md#2-勒布朗・詹姆斯-lebron-james"
+            },
+            {
+                id: 'star-3',
+                title: "贾巴尔是NBA历史得分王，但从未获得过扣篮大赛冠军",
+                detail: "卡里姆・阿卜杜勒-贾巴尔以38,387分成为NBA历史得分王，他的\"天勾\"投篮是篮球史上最著名的技术动作之一。有趣的是，尽管贾巴尔拥有出色的身高和运动能力，但他从未参加过扣篮大赛。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/76003.png",
+                localLink: "start_cn.md#3-卡里姆・阿卜杜勒---贾巴尔-kareem-abdul-jabbar"
+            },
+            {
+                id: 'star-4',
+                title: "魔术师在20岁时就获得了NBA总冠军和总决赛MVP",
+                detail: "1980年，年仅20岁的魔术师约翰逊在总决赛第六场比赛中，由于贾巴尔受伤无法上场，临时改打中锋位置，全场砍下42分、15个篮板和7次助攻，帮助湖人队夺得总冠军。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/77142.png",
+                localLink: "start_cn.md#4-魔术师约翰逊-magic-johnson"
+            },
+            {
+                id: 'star-5',
+                title: "拉塞尔拥有11枚总冠军戒指，但从未获得过得分王",
+                detail: "比尔・拉塞尔是NBA历史上最伟大的防守球员之一，他拥有11枚总冠军戒指，是NBA历史上获得总冠军最多的球员。有趣的是，尽管拉塞尔的职业生涯场均得分只有15.1分，但他从未获得过得分王。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/78049.png",
+                localLink: "start_cn.md#5-比尔・拉塞尔-bill-russell"
+            },
+            {
+                id: 'star-6',
+                title: "张伯伦单场100分的比赛，实际上是在一个小球馆里进行的",
+                detail: "1962年3月2日，威尔特・张伯伦在对阵纽约尼克斯的比赛中砍下了100分，这是NBA历史上单场得分最高的记录。有趣的是，这场比赛并不是在麦迪逊广场花园这样的大球馆进行的，而是在宾夕法尼亚州赫尔希的一个只有4,124个座位的小球馆里。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/76375.png",
+                localLink: "start_cn.md#6-威尔特・张伯伦-wilt-chamberlain"
+            },
+            {
+                id: 'star-7',
+                title: "邓肯因为在场边笑而被驱逐出场",
+                detail: "2007年4月15日，在一场马刺队对阵小牛队的比赛中，蒂姆・邓肯因为坐在替补席上笑而被裁判乔伊・克劳福德驱逐出场。这是NBA历史上最著名的技术犯规之一。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1495.png",
+                localLink: "start_cn.md#7-蒂姆・邓肯-tim-duncan"
+            },
+            {
+                id: 'star-8',
+                title: "奥尼尔曾经发行过说唱专辑",
+                detail: "除了在篮球场上的统治力，沙奎尔・奥尼尔还是一位多才多艺的艺人。他曾经发行过5张说唱专辑，其中1993年的首张专辑《Shaq Diesel》达到了白金销量。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/406.png",
+                localLink: "start_cn.md#8-沙奎尔・奥尼尔-shaquille-oneal"
+            },
+            {
+                id: 'star-9',
+                title: "伯德是唯一同时获得季前赛MVP和总决赛MVP的球员",
+                detail: "拉里・伯德是NBA历史上唯一一位同时获得季前赛MVP和总决赛MVP的球员。这个记录非常独特，因为季前赛MVP和总决赛MVP通常被认为是两个完全不同级别的荣誉。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/1449.png",
+                localLink: "start_cn.md#9-拉里・伯德-larry-bird"
+            },
+            {
+                id: 'star-10',
+                title: "库里的投篮姿势曾经被批评过",
+                detail: "在斯蒂芬・库里的职业生涯早期，许多篮球专家和教练都批评过他的投篮姿势。他们认为库里的投篮出手点太低，而且投篮动作不够标准。然而，库里坚持自己的投篮方式，并最终成为了NBA历史上最伟大的射手之一。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png",
+                localLink: "start_cn.md#10-斯蒂芬・库里-stephen-curry"
+            },
+            {
+                id: 'star-11',
+                title: "科比的第一个和最后一个NBA得分都是罚球",
+                detail: "1996年11月3日，18岁的科比在对阵明尼苏达森林狼的比赛中，通过罚球得到了他NBA生涯的第一分。20年后，2016年4月13日，科比在对阵犹他爵士的告别战中砍下60分，他的最后两分同样来自罚球。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/977.png",
+                localLink: "start_cn.md#11-科比・布莱恩特-kobe-bryant"
+            },
+            {
+                id: 'star-12',
+                title: "奥拉朱旺是NBA历史上第一位外籍状元秀",
+                detail: "1984年NBA选秀大会上，哈基姆・奥拉朱旺以第一顺位被休斯顿火箭队选中，成为NBA历史上第一位外籍状元秀。这个里程碑标志着NBA全球化进程的开始，也为后来的国际球员打开了大门。",
+                image: "https://cdn.nba.com/headshots/nba/latest/1040x760/165.png",
+                localLink: "start_cn.md#12-哈基姆・奥拉朱旺-hakeem-olajuwon"
+            }
+        ];
+
+        // 初始加载与"加载更多"功能
+        (function() {
+            const grid = document.getElementById('facts-grid');
+            const btn = document.getElementById('load-more-btn');
+            if (!grid || !btn) return;
+
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            function buildCard(item) {
+                const link = item.localLink || '#';
+                const title = escapeHtml(item.title || '');
+                const detail = (item.detail || '').slice(0, 40) + '...';
+                const text = escapeHtml(detail);
+                const img = item.image || `https://picsum.photos/id/${(item.id || 1) % 1000}/600/400`;
+                const alt = title;
+                return `
+            <a href="${link}" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="${img}" alt="${alt}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-${item.id}/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">冷门知识</span>
+                        <h3 class="font-bold text-xl mb-3">${title}</h3>
+                        <p class="text-gray-600 mb-4">${text}</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+            }
+
+            function appendItems(items) {
+                const html = items.map(buildCard).join('\n');
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = html;
+                Array.from(wrapper.children).forEach(node => grid.appendChild(node));
+            }
+
+            function updateButtonState(disabled) {
+                if (disabled) {
+                    btn.textContent = '加载完成';
+                    btn.classList.add('cursor-not-allowed', 'opacity-60');
+                    btn.disabled = true;
+                } else {
+                    btn.textContent = '加载更多';
+                    btn.classList.remove('cursor-not-allowed', 'opacity-60');
+                    btn.disabled = false;
+                }
+            }
+
+            let nbaJsonCache = null;
+            let nbaJsonSorted = null;
+            let nbaJsonCursor = 0;
+            let isNbaJsonMode = false;
+
+            // 首次进入页面：显示12位明星数据
+            (function initialLoad() {
+                //grid.innerHTML = '';
+                //appendItems(starsData);
+                updateButtonState(false);
+            })();
+
+            // 点击按钮：首次点击加载 nba.json 数据，之后每次追加6条
+            btn.addEventListener('click', async () => {
+                if (!isNbaJsonMode) {
+                    // 首次点击，切换到 nba.json 模式
+                    isNbaJsonMode = true;
+                    try {
+                        if (!nbaJsonCache) {
+                            const res = await fetch('nba.json', { cache: 'no-store' });
+                            nbaJsonCache = await res.json();
+                            nbaJsonSorted = nbaJsonCache
+                                .filter(x => typeof x.id === 'number')
+                                .sort((a, b) => b.id - a.id);
+                        }
+                        const next = nbaJsonSorted.slice(nbaJsonCursor, nbaJsonCursor + 12);
+                        if (next.length > 0) {
+                            appendItems(next);
+                            nbaJsonCursor += next.length;
+                            if (nbaJsonCursor >= nbaJsonSorted.length) {
+                                updateButtonState(true);
+                            }
+                        } else {
+                            updateButtonState(true);
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        btn.textContent = '加载失败，重试';
+                    }
+                } else {
+                    // 后续点击，继续加载
+                    try {
+                        if (!nbaJsonCache) {
+                            const res = await fetch('nba.json', { cache: 'no-store' });
+                            nbaJsonCache = await res.json();
+                            nbaJsonSorted = nbaJsonCache
+                                .filter(x => typeof x.id === 'number')
+                                .sort((a, b) => b.id - a.id);
+                        }
+                        const next = nbaJsonSorted.slice(nbaJsonCursor, nbaJsonCursor + 6);
+                        if (next.length > 0) {
+                            appendItems(next);
+                            nbaJsonCursor += next.length;
+                            if (nbaJsonCursor >= nbaJsonSorted.length) {
+                                updateButtonState(true);
+                            }
+                        } else {
+                            updateButtonState(true);
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        btn.textContent = '加载失败，重试';
+                    }
+                }
+            });
+        })();
+
+        // 搜索功能：按 title 过滤并渲染结果（包含12位明星数据和nba.json数据）
+        (function() {
+            const grid = document.getElementById('facts-grid');
+            const input = document.getElementById('search-input');
+            const btn = document.getElementById('search-btn');
+            const mInput = document.getElementById('search-input-m');
+            const mBtn = document.getElementById('search-btn-m');
+            if (!grid || !input || !btn) return;
+
+            let nbaJsonCache = null;
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+            function buildCard(item) {
+                const link = item.localLink || '#';
+                const title = escapeHtml(item.title || '');
+                const detail = (item.detail || '').slice(0, 40) + '...';
+                const text = escapeHtml(detail);
+                const img = item.image || `https://picsum.photos/id/${(item.id || 1) % 1000}/600/400`;
+                const alt = title;
+                return `
+            <a href="${link}" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="${img}" alt="${alt}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/nba-${item.id}/600/400'">
+                    <div class="p-6">
+                        <span class="inline-block bg-nba-purple text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">搜索结果</span>
+                        <h3 class="font-bold text-xl mb-3">${title}</h3>
+                        <p class="text-gray-600 mb-4">${text}</p>
+                        <div class="flex items-center text-nba-purple font-medium">
+                            阅读更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+            }
+
+            async function doSearch() {
+                const kw = (input.value || '').trim();
+                if (!kw) return; // 不做空搜索
+                if (!nbaJsonCache) {
+                    try {
+                        const res = await fetch('nba.json', { cache: 'no-store' });
+                        nbaJsonCache = await res.json();
+                    } catch (e) {
+                        nbaJsonCache = [];
+                    }
+                }
+                const lower = kw.toLowerCase();
+                const allData = [...starsData, ...(nbaJsonCache || [])]; // 合并12位明星数据和nba.json数据
+                const result = allData.filter(x => (x.title || '').toLowerCase().indexOf(lower) !== -1).slice(0, 30);
+                // 清空并渲染
+                grid.innerHTML = result.map(buildCard).join('\n') || '<div class="col-span-3 text-center text-gray-500">未找到匹配结果</div>';
+                // 滚动到列表
+                document.getElementById('facts').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            btn.addEventListener('click', doSearch);
+            input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+            // 绑定移动端搜索：复用同一逻辑
+            if (mBtn && mInput) {
+                mBtn.addEventListener('click', () => { input.value = mInput.value; doSearch(); });
+                mInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { input.value = mInput.value; doSearch(); } });
+            }
+        })();
+
+        // NBA名人标签区：从 cn/nba.json 提取姓名并渲染
+        (function() {
+            const container = document.getElementById('famous-tags');
+            if (!container) return;
+
+            function extractNameFromTitle(title) {
+                if (!title) return '';
+                // 取标题开头或第一个标点/助词之前的片段，适配中英文
+                const cut = title.split(/[\s“”"'：:，,。!！?？—-]|的|曾|是/)[0].trim();
+                // 基本过滤：至少2个字符，且含中文或英文字母
+                if (!cut || cut.length < 2) return '';
+                if (!(/[\u4e00-\u9fa5A-Za-z]/.test(cut))) return '';
+                return cut;
+            }
+
+            (async () => {
+                try {
+                    const res = await fetch('nba.json', { cache: 'no-store' });
+                    const data = await res.json();
+                    const nameToLink = new Map();
+                    for (const item of data) {
+                        const name = extractNameFromTitle(item.title);
+                        if (!name) continue;
+                        if (!nameToLink.has(name)) {
+                            nameToLink.set(name, item.localLink || '#');
+                        }
+                    }
+                    const frag = document.createDocumentFragment();
+                    Array.from(nameToLink.entries()).slice(0, 60).forEach(([name, link]) => {
+                        const a = document.createElement('a');
+                        a.href = link;
+                        a.className = 'inline-block bg-nba-purple text-white text-sm font-semibold px-3 py-1 rounded-full hover:bg-purple-700 transition-colors duration-300';
+                        a.textContent = name;
+                        frag.appendChild(a);
+                    });
+                    container.appendChild(frag);
+                } catch (e) {
+                    console.error('famous-tags render error', e);
+                }
+            })();
+        })();
+
+        // 移动端菜单开关
+        (function(){
+            const btn = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function(){
+                menu.classList.toggle('hidden');
+            });
+        })();
+    </script>
+</body>
+</html>
+

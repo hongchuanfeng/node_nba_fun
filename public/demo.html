@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NBA 趣事 · 静态页面示例</title>
+    <meta name="description" content="位于 public 目录的独立静态 HTML 页面示例，无需构建即可通过 /demo.html 直接访问。" />
+    <style>
+      :root {
+        --bg: #0d1117;
+        --bg-soft: #141b24;
+        --bg-card: #161e29;
+        --border: #243040;
+        --text: #e8eef7;
+        --text-soft: #9fb0c3;
+        --accent: #f97316;
+        --accent-2: #38bdf8;
+        --radius: 14px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 48px 20px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+        line-height: 1.7;
+      }
+      main { max-width: 760px; margin: 0 auto; }
+      .tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--accent-2);
+        font-size: 13px;
+      }
+      h1 { margin: 18px 0 6px; font-size: 30px; }
+      .en { margin: 0 0 24px; color: var(--text-soft); font-size: 18px; }
+      section {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px 22px;
+        margin-bottom: 18px;
+      }
+      h2 { margin: 0 0 10px; font-size: 18px; }
+      p { margin: 0 0 8px; }
+      code {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 2px 6px;
+        font-size: 14px;
+      }
+      ul { margin: 8px 0 0; padding-left: 20px; color: var(--text-soft); }
+      a { color: var(--accent); }
+      footer { color: var(--text-soft); font-size: 14px; margin-top: 28px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="tag">public/demo.html</span>
+      <h1>静态页面可以正常访问了</h1>
+      <p class="en">Static HTML pages served straight from the public directory.</p>
+
+      <section>
+        <h2>这是什么 / What is this</h2>
+        <p>
+          这是一个放在 <code>web/public/</code> 目录下的独立 HTML 文件，由 Next.js 的静态资源服务直接输出，
+          不参与 React 渲染，也不需要任何构建步骤。
+        </p>
+        <p>
+          This is a standalone HTML file inside <code>web/public/</code>. It is served as a static asset by
+          Next.js — no React rendering and no build step involved.
+        </p>
+      </section>
+
+      <section>
+        <h2>访问方式 / How to reach it</h2>
+        <ul>
+          <li><code>/demo.html</code> — public 根目录下的文件</li>
+          <li><code>/tools/scoreboard.html</code> — public 子目录同样可以直接访问</li>
+          <li>这些路径不会再做语言前缀重定向，中英文页面请自行在 HTML 内处理。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>注意事项 / Notes</h2>
+        <ul>
+          <li>文件名建议带扩展名（.html），中间件会自动放行静态资源。</li>
+          <li>public 目录下的文件由 <code>publicPath</code> 提供，部署时需要一并上传。</li>
+          <li>如需进入站点导航，请使用 <a href="/zh">/zh</a> 或 <a href="/en">/en</a>。</li>
+        </ul>
+      </section>
+
+      <footer>NBA 趣事 · 静态资源示例</footer>
+    </main>
+  </body>
+</html>
